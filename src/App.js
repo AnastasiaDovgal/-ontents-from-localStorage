@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MusicArtists from './MusicArtists';
+import Modal from './components/Modal';
 
 function App() {
+  const toLocalStorage = event => {
+    event.preventDefault();
+    let l = event.target[0].value;
+    console.log(l);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form onSubmit={toLocalStorage}>
+        <input type="text" placeholder="Search by name" />
+
+        <button type="submit">Press</button>
+      </form>
+
+
     </div>
   );
 }
